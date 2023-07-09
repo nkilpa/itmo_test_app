@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  database:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: false
+    volumes:
+      - ./mysql/data:/var/lib/mysql:rw
+    ports:
+      - "3307:3306"
+
